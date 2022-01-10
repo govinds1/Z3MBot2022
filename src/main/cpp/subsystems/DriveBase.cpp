@@ -41,7 +41,7 @@ DriveBase::DriveBase(){
     m_frontLeft.SetInverted(false);
 
     AddChild("backLeft", &m_backLeft);
-    m_backLeft.SetInverted(false);
+    m_backLeft.SetInverted(true);
 
     m_backLeft.Follow(m_frontLeft);
     m_backRight.Follow(m_frontRight);
@@ -103,10 +103,4 @@ void DriveBase::TankDriveFunc(double leftSpeed, double rightSpeed) {
     m_drive.TankDrive(leftSpeed, rightSpeed);
     //m_frontLeft.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, leftSpeed);
     //m_frontRight.Set(ctre::phoenix::motorcontrol::ControlMode::PercentOutput, rightSpeed);
-}
-
-double DriveBase::GetPosition() {
-    // return absolute encoder position
-    //return m_frontLeft.GetSelectedSensorPosition(0);
-    return 0.0;
 }

@@ -23,8 +23,10 @@
 
 #include "commands/ArcadeDrive.h"
 #include "commands/AutonomousCommand.h"
+#include "commands/DriveDistance.h"
 #include "commands/IntakeCargo.h"
 #include "commands/Shoot.h"
+#include "commands/TaxiAuto.h"
 #include "commands/TankDrive.h"
 #include <frc/XboxController.h>
 #include <frc2/command/button/JoystickButton.h>

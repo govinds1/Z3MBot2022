@@ -47,7 +47,6 @@ DriveBase();
 
     void ArcadeDriveFunc(double speed, double rot);
     void TankDriveFunc(double leftSpeed, double rightSpeed);
-    double GetPosition();
 
     static constexpr const double kAutoDriveSpeed = 0.5;
     static constexpr const double kMaxDriveSpeed = 0.8;

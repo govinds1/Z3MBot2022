@@ -14,28 +14,24 @@ m_drivebase(m_drivebase)
 
 // Called just before this Command runs the first time
 void DriveDistance::Initialize() {
-    // Read current encoder value and set start
-    //start = m_drivebase->GetPosition();
+    velocity = (m_dist < 0) ? -m_drivebase->kAutoDriveSpeed : m_drivebase->kAutoDriveSpeed;
+    timer->Reset();
+    timer->Start();
 }
 
 // Called repeatedly when this Command is scheduled to run
 void DriveDistance::Execute() {
-    m_drivebase->ArcadeDriveFunc(m_drivebase->kAutoDriveSpeed, 0.0);
+    m_drivebase->ArcadeDriveFunc(velocity, 0.0);
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool DriveDistance::IsFinished() {
-    return true;
-    
-    // check distance travelled
-    if (abs(m_drivebase->GetPosition() - start) >= m_dist) {
-        return true;
-    }
-    return false;
+    return timer->HasPeriodPassed(units::second_t(m_dist/kTimeToTravel1Unit));
 }
 
 // Called once after isFinished returns true
 void DriveDistance::End(bool interrupted) {
+    timer->Stop();
     m_drivebase->ArcadeDriveFunc(0.0, 0.0);
 }
 

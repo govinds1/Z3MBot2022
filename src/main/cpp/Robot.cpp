@@ -59,12 +59,18 @@ void Robot::TeleopInit() {
     m_autonomousCommand->Cancel();
     m_autonomousCommand = nullptr;
   }
+  //TankDrive tankCmd = TankDrive();
+
 }
 
 /**
  * This function is called periodically during operator control.
  */
-void Robot::TeleopPeriodic() {}
+void Robot::TeleopPeriodic() {
+  // MAKESHIFT - WE WANT TO DO IT THE COMMAND WAY WITH A DEFAULT COMMAND (line 44/45 of RobotContainer.cpp)
+  frc::XboxController* controller = RobotContainer::GetInstance()->getxboxController();
+  RobotContainer::GetInstance()->m_driveBase.TankDriveFunc(controller->GetLeftY(), controller->GetRightX());
+}
 
 /**
  * This function is called periodically during test mode.

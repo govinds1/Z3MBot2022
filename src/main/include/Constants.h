@@ -3,12 +3,12 @@
 #include <frc/XboxController.h>
 
 namespace MotorPortConstants{
-    constexpr int kBackLeftMotorPort = 0;
+    constexpr int kBackLeftMotorPort = 4;
     constexpr int kFrontLeftMotorPort = 1;
-    constexpr int kBackRightMotorPort = 2;
-    constexpr int kFrontRightMotorPort = 3;
-    constexpr int kIntakeMotorPort = 4;
-    constexpr int kShooterMotorPort = 5;
+    constexpr int kBackRightMotorPort = 5;
+    constexpr int kFrontRightMotorPort = 0;
+    constexpr int kIntakeMotorPort = 2;
+    constexpr int kShooterMotorPort = 7;
     constexpr int kClimberMotor1Port = 6;
     constexpr int kClimberMotor2Port = 7;
 }
