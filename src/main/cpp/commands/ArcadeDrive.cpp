@@ -14,9 +14,9 @@
 
 #include "commands/ArcadeDrive.h"
 
-ArcadeDrive::ArcadeDrive(double speed, double rotation, DriveBase* m_drivebase) :
-    m_speed(speed),
-    m_rotation(rotation),
+ArcadeDrive::ArcadeDrive(std::function<double()> speed, std::function<double()> rotation, DriveBase* m_drivebase) :
+    m_speed(std::move(speed)),
+    m_rotation(std::move(rotation)),
 m_drivebase(m_drivebase)
 {
 
@@ -36,7 +36,7 @@ void ArcadeDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ArcadeDrive::Execute() {
-    m_drivebase->ArcadeDriveFunc(m_speed, m_rotation);
+    m_drivebase->ArcadeDriveFunc(m_speed(), m_rotation());
 }
 
 // Make this return true when this Command no longer needs to run execute()

@@ -33,7 +33,7 @@ void Shoot::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Shoot::Execute() {
-
+    frc::SmartDashboard::PutBoolean("Subsystems/Shooter/Running", true);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -44,6 +44,7 @@ bool Shoot::IsFinished() {
 // Called once after isFinished returns true
 void Shoot::End(bool interrupted) {
     m_shooter->Stop();
+    frc::SmartDashboard::PutBoolean("Subsystems/Shooter/Running", false);
 }
 
 bool Shoot::RunsWhenDisabled() const {

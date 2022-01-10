@@ -33,7 +33,7 @@ void IntakeCargo::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void IntakeCargo::Execute() {
-
+    frc::SmartDashboard::PutBoolean("Subsystems/Intake/Running", true);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -43,6 +43,7 @@ bool IntakeCargo::IsFinished() {
 
 // Called once after isFinished returns true
 void IntakeCargo::End(bool interrupted) {
+    frc::SmartDashboard::PutBoolean("Subsystems/Intake/Running", false);
     m_intake->Stop();
 }
 

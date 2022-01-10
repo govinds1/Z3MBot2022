@@ -1,8 +1,8 @@
 #include "commands/TankDrive.h"
 
-TankDrive::TankDrive(double leftSpeed, double rightSpeed, DriveBase* m_drivebase) :
-    m_leftSpeed(leftSpeed),
-    m_rightSpeed(rightSpeed),
+TankDrive::TankDrive(std::function<double()> leftSpeed, std::function<double()> rightSpeed, DriveBase* m_drivebase) :
+    m_leftSpeed(std::move(leftSpeed)),
+    m_rightSpeed(std::move(rightSpeed)),
 m_drivebase(m_drivebase)
 {
 
@@ -22,7 +22,7 @@ void TankDrive::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void TankDrive::Execute() {
-    m_drivebase->TankDriveFunc(m_leftSpeed, m_rightSpeed);
+    m_drivebase->TankDriveFunc(m_leftSpeed(), m_rightSpeed());
 }
 
 // Make this return true when this Command no longer needs to run execute()

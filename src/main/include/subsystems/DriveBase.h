@@ -42,8 +42,8 @@ frc::DifferentialDrive m_drive{m_left, m_right};
 public:
 DriveBase();
 
-    void Periodic() override;
-    void SimulationPeriodic() override;
+    //void Periodic() override;
+    //void SimulationPeriodic() override;
 
     void ArcadeDriveFunc(double speed, double rot);
     void TankDriveFunc(double leftSpeed, double rightSpeed);

@@ -67,9 +67,9 @@ void Robot::TeleopInit() {
  * This function is called periodically during operator control.
  */
 void Robot::TeleopPeriodic() {
-  // MAKESHIFT - WE WANT TO DO IT THE COMMAND WAY WITH A DEFAULT COMMAND (line 44/45 of RobotContainer.cpp)
-  frc::XboxController* controller = RobotContainer::GetInstance()->getxboxController();
-  RobotContainer::GetInstance()->m_driveBase.TankDriveFunc(controller->GetLeftY(), controller->GetRightX());
+  // MAKESHIFT - WE WANT TO DO IT THE COMMAND WAY WITH A DEFAULT COMMAND (line 44 or 45 of RobotContainer.cpp)
+  //frc::XboxController* controller = RobotContainer::GetInstance()->getxboxController();
+  //RobotContainer::GetInstance()->m_driveBase.TankDriveFunc(controller->GetLeftY(), controller->GetRightY());
 }
 
 /**
