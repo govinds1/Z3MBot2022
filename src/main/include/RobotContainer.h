@@ -20,6 +20,7 @@
 #include "subsystems/DriveBase.h"
 #include "subsystems/Intake.h"
 #include "subsystems/Shooter.h"
+#include "subsystems/Tunnel.h"
 
 #include "commands/ArcadeDrive.h"
 #include "commands/AutonomousCommand.h"
@@ -46,6 +47,7 @@ DriveBase m_driveBase;
 Intake m_intake;
 Shooter m_shooter;
 Climber m_climber;
+Tunnel m_tunnel;
 
 
 frc::XboxController* getxboxController();

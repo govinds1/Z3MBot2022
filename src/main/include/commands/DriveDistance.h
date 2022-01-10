@@ -35,11 +35,10 @@ private:
 
 double m_dist;
 double velocity;
+//units::second_t totalTime;
 
 
 DriveBase* m_drivebase;
-
-frc::Timer* timer;
 
 // This should be set with experimentation
 static constexpr const double kTimeToTravel1Unit = 1.0;

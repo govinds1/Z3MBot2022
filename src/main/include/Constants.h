@@ -9,8 +9,9 @@ namespace MotorPortConstants{
     constexpr int kFrontRightMotorPort = 0;
     constexpr int kIntakeMotorPort = 2;
     constexpr int kShooterMotorPort = 7;
+    constexpr int kCargoTunnelMotorPort = 8;
     constexpr int kClimberMotor1Port = 6;
-    constexpr int kClimberMotor2Port = 7;
+    constexpr int kClimberMotor2Port = 3;
 }
 
 namespace ControllerConstants {
