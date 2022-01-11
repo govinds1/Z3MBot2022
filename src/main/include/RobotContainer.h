@@ -27,6 +27,7 @@
 #include "commands/Climb.h"
 #include "commands/DriveDistance.h"
 #include "commands/IntakeCargo.h"
+#include "commands/RunTunnel.h"
 #include "commands/Shoot.h"
 #include "commands/TaxiAuto.h"
 #include "commands/TankDrive.h"

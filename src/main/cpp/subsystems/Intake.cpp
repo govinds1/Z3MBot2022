@@ -24,6 +24,12 @@ Intake::Intake(){
     AddChild("motor", &m_motor);
     m_motor.SetInverted(false);
     m_motor.ConfigPeakOutputForward(kIntakeSpeed);
+    m_motor.ConfigPeakOutputReverse(-kIntakeSpeed);
+
+    AddChild("wrist", &m_wrist);
+    m_wrist.SetInverted(false);
+    m_wrist.ConfigPeakOutputForward(kWristSpeed);
+    m_wrist.ConfigPeakOutputReverse(-kWristSpeed);
     
     frc::SmartDashboard::PutBoolean("Subsystems/Intake/Running", false);
     frc::SmartDashboard::PutString("Subsystems/Intake/Wrist/MovingState", "Idle");

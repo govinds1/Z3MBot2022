@@ -67,9 +67,52 @@ void Robot::TeleopInit() {
  * This function is called periodically during operator control.
  */
 void Robot::TeleopPeriodic() {
-  // MAKESHIFT - WE WANT TO DO IT THE COMMAND WAY WITH A DEFAULT COMMAND (line 44 or 45 of RobotContainer.cpp)
-  //frc::XboxController* controller = RobotContainer::GetInstance()->getxboxController();
-  //RobotContainer::GetInstance()->m_driveBase.TankDriveFunc(controller->GetLeftY(), controller->GetRightY());
+  //Uncomment things if Commands don't work
+
+  //frc::XboxController* controller = m_container->getxboxController();
+  
+  // Driving
+  //m_container->m_driveBase.TankDriveFunc(controller->GetLeftY(), controller->GetRightY());
+
+  //Intake Roller
+  // if (controller->GetRawButton(ControllerConstants::kIntakeButton)) {
+  //   m_container->m_intake.Run();
+  // } else {
+  //   m_container->m_intake.Stop();
+  // }
+  //Intake Wrist
+  // if (controller->GetLeftTriggerAxis() >= 0.1) {
+  //   m_container->m_intake.MoveWristDown();
+  // }
+  // if (controller->GetRightTriggerAxis() >= 0.1) {
+  //   m_container->m_intake.MoveWristUp();
+  // }
+  
+  //Tunnel
+  // if (controller->GetRawButton(ControllerConstants::kTunnelButton)) {
+  //   m_container->m_tunnel.Run();
+  // } else {
+  //   m_container->m_tunnel.Stop();
+  // }
+
+  //Shooter
+  // if (controller->GetRawButton(ControllerConstants::kShootButton)) {
+  //   m_container->m_shooter.Run();
+  // } else {
+  //   m_container->m_shooter.Stop();
+  // }
+
+  // //Climber
+  // if (controller->GetRawButton(ControllerConstants::kClimb1Button)) {
+  //   m_container->m_climber.RunMotor1();
+  // } else {
+  //   m_container->m_climber.StopMotor1();
+  // }
+  // if (controller->GetRawButton(ControllerConstants::kClimb2Button)) {
+  //   m_container->m_climber.RunMotor2();
+  // } else {
+  //   m_container->m_climber.StopMotor2();
+  // }
 }
 
 /**

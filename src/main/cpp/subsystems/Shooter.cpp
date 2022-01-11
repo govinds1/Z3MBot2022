@@ -40,9 +40,15 @@ void Shooter::SimulationPeriodic() {
 void Shooter::Run() {
     frc::SmartDashboard::PutBoolean("Subsystems/Shooter/Running", true);
     m_motor.Set(kShootSpeed);
+    // USE VELOCITY CONTROL - more accurate
 }
 
 void Shooter::Stop() {
     frc::SmartDashboard::PutBoolean("Subsystems/Shooter/Running", false);
     m_motor.Set(0.0);
+}
+
+bool Shooter::AtFullSpeed() {
+    return true;
+    // check encoder for velocity and make sure its what you want
 }
