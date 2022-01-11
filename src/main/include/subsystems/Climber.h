@@ -38,5 +38,7 @@ Climber();
     void Periodic() override;
     void SimulationPeriodic() override;
 
+    static constexpr const double kClimberSpeed = 0.9;
+
 };
 
