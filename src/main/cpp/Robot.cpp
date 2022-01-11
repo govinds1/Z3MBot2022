@@ -59,7 +59,6 @@ void Robot::TeleopInit() {
     m_autonomousCommand->Cancel();
     m_autonomousCommand = nullptr;
   }
-  //TankDrive tankCmd = TankDrive();
 
 }
 
@@ -67,7 +66,7 @@ void Robot::TeleopInit() {
  * This function is called periodically during operator control.
  */
 void Robot::TeleopPeriodic() {
-  //Uncomment things if Commands don't work
+  //Uncomment things if Commands don't work, make sure to comment out the respective Command bindings in RobotContainer
 
   //frc::XboxController* controller = m_container->getxboxController();
   

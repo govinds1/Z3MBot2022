@@ -89,20 +89,21 @@ void Intake::CheckForLimit() {
 }
 
 Intake::WristLocation Intake::GetWristLocation() {
-    //return WristLocation::Up;
-    if (upperLimitSwitch.Get() && lowerLimitSwitch.Get()) {
-        // Somehow hitting both -> Error
-        frc::SmartDashboard::PutString("Subsystems/Intake/Wrist/Location", "Error");
-        StopWrist();
-        return WristLocation::Error;
-    } else if (upperLimitSwitch.Get()) {
-        frc::SmartDashboard::PutString("Subsystems/Intake/Wrist/Location", "Up");
-        return WristLocation::Up;
-    } else if (lowerLimitSwitch.Get()) {
-        frc::SmartDashboard::PutString("Subsystems/Intake/Wrist/Location", "Down");
-        return WristLocation::Down;
-    } else {
-        frc::SmartDashboard::PutString("Subsystems/Intake/Wrist/Location", "Middle");
-        return WristLocation::Middle;
-    }
+    return WristLocation::Middle;
+
+    // if (upperLimitSwitch.Get() && lowerLimitSwitch.Get()) {
+    //     // Somehow hitting both -> Error
+    //     frc::SmartDashboard::PutString("Subsystems/Intake/Wrist/Location", "Error");
+    //     StopWrist();
+    //     return WristLocation::Error;
+    // } else if (upperLimitSwitch.Get()) {
+    //     frc::SmartDashboard::PutString("Subsystems/Intake/Wrist/Location", "Up");
+    //     return WristLocation::Up;
+    // } else if (lowerLimitSwitch.Get()) {
+    //     frc::SmartDashboard::PutString("Subsystems/Intake/Wrist/Location", "Down");
+    //     return WristLocation::Down;
+    // } else {
+    //     frc::SmartDashboard::PutString("Subsystems/Intake/Wrist/Location", "Middle");
+    //     return WristLocation::Middle;
+    // }
 }
