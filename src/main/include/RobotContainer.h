@@ -24,6 +24,7 @@
 
 #include "commands/ArcadeDrive.h"
 #include "commands/AutonomousCommand.h"
+#include "commands/Climb.h"
 #include "commands/DriveDistance.h"
 #include "commands/IntakeCargo.h"
 #include "commands/Shoot.h"

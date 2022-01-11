@@ -24,4 +24,5 @@ namespace ControllerConstants {
     constexpr int kXboxControllerPort = 0;
     constexpr int kIntakeButton = (int)frc::XboxController::Button::kA;
     constexpr int kShootButton = (int)frc::XboxController::Button::kB;
+    constexpr int kClimbButton = (int)frc::XboxController::Button::kRightBumper;
 }
