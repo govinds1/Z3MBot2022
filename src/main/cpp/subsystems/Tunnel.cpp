@@ -10,7 +10,7 @@ Tunnel::Tunnel(){
     frc::SmartDashboard::PutBoolean("Subsystems/Tunnel/Running", false);
 
     AddChild("motor", &m_motor);
-    m_motor.SetInverted(false);
+    m_motor.SetInverted(true);
     m_motor.ConfigPeakOutputForward(kTunnelSpeed);
     m_motor.ConfigPeakOutputReverse(-kTunnelSpeed);
 

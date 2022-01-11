@@ -27,19 +27,16 @@ void Climber::SimulationPeriodic() {
 
 }
 
-void Climber::Run() {
-    RunMotor1();
-    RunMotor2();
-}
-
-void Climber::RunMotor1() {
+void Climber::RunMotor1(bool forward) {
     frc::SmartDashboard::PutBoolean("Subsystems/Climber/Motor1/Running", true);
-    m_motor1.Set(kClimberSpeed);
+    double dir = (forward) ? 1.0 : -1.0;
+    m_motor1.Set(kClimberSpeed * dir);
 }
 
-void Climber::RunMotor2() {
+void Climber::RunMotor2(bool forward) {
     frc::SmartDashboard::PutBoolean("Subsystems/Climber/Motor2/Running", true);
-    m_motor2.Set(kClimberSpeed);
+    double dir = (forward) ? 1.0 : -1.0;
+    m_motor2.Set(kClimberSpeed * dir);
 }
 
 void Climber::Stop() {

@@ -38,9 +38,8 @@ Climber();
 
     void Periodic() override;
     void SimulationPeriodic() override;
-    void RunMotor1();
-    void RunMotor2();
-    void Run();
+    void RunMotor1(bool forward);
+    void RunMotor2(bool forward);
     void StopMotor1();
     void StopMotor2();
     void Stop();

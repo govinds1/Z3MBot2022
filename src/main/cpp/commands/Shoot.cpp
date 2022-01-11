@@ -35,6 +35,8 @@ void Shoot::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Shoot::Execute() {
+    m_shooter->Run();
+    m_tunnel->Run();
     if (m_shooter->AtFullSpeed()) {
         //m_tunnel->RunHalfSpeed();
     }

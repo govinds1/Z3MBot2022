@@ -10,9 +10,9 @@ namespace CANMotorIDs{
     constexpr int kIntakeRollerID = 2;
     constexpr int kIntakeWristMotorPort = 6;
     constexpr int kShooterID = 7;
-    constexpr int kCargoTunnelID = 9;
+    constexpr int kCargoTunnelID = 3;
     constexpr int kClimber1ID = 8;
-    constexpr int kClimber2ID = 3;
+    constexpr int kClimber2ID = 9;
 }
 
 namespace DIOPorts{
@@ -24,7 +24,9 @@ namespace ControllerConstants {
     constexpr int kXboxControllerPort = 0;
     constexpr int kIntakeButton = (int)frc::XboxController::Button::kA;
     constexpr int kShootButton = (int)frc::XboxController::Button::kB;
-    constexpr int kClimb1Button = (int)frc::XboxController::Button::kLeftBumper;
-    constexpr int kClimb2Button = (int)frc::XboxController::Button::kRightBumper;
+    constexpr int kClimb1UpButton = (int)frc::XboxController::Button::kLeftBumper;
+    constexpr int kClimb1DownButton = (int)frc::XboxController::Button::kRightBumper;
+    constexpr int kClimb2UpButton = 2;
+    constexpr int kClimb2DownButton = 3;
     constexpr int kTunnelButton = (int)frc::XboxController::Button::kX;
 }

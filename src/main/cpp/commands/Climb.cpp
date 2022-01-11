@@ -1,8 +1,9 @@
 #include "commands/Climb.h"
 
-Climb::Climb(MotorsToRun toRun, Climber* m_climber)
+Climb::Climb(MotorsToRun toRun, bool forward, Climber* m_climber)
 :m_climber(m_climber),
-m_toRun(toRun){
+m_toRun(toRun),
+m_forward(forward){
 
     // Use AddRequirements() here to declare subsystem dependencies
     // eg. AddRequirements(m_Subsystem);
@@ -16,11 +17,9 @@ m_toRun(toRun){
 // Called just before this Command runs the first time
 void Climb::Initialize() {
     if (m_toRun == MotorsToRun::One) {
-        m_climber->RunMotor1();
+        m_climber->RunMotor1(m_forward);
     } else if (m_toRun == MotorsToRun::Two) {
-        m_climber->RunMotor2();
-    } else {
-        m_climber->Run();
+        m_climber->RunMotor2(m_forward);
     }
 }
 

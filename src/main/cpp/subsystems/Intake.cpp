@@ -27,7 +27,7 @@ Intake::Intake(){
     m_motor.ConfigPeakOutputReverse(-kIntakeSpeed);
 
     AddChild("wrist", &m_wrist);
-    m_wrist.SetInverted(false);
+    m_wrist.SetInverted(true);
     m_wrist.ConfigPeakOutputForward(kWristSpeed);
     m_wrist.ConfigPeakOutputReverse(-kWristSpeed);
     

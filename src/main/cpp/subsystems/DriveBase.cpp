@@ -69,11 +69,13 @@ void DriveBase::Periodic() {
 }
 
 void DriveBase::ArcadeDriveFunc(double speed, double rot) {
-    m_drive.ArcadeDrive(Deadzone(speed, 0.05), Deadzone(rot, 0.05));
+    //m_drive.ArcadeDrive(Deadzone(speed, 0.02), Deadzone(rot, 0.02));
+    m_drive.ArcadeDrive(speed, rot);
 }
 
 void DriveBase::TankDriveFunc(double leftSpeed, double rightSpeed) {
-    m_drive.TankDrive(Deadzone(leftSpeed, 0.05), Deadzone(rightSpeed, 0.05));
+    //m_drive.TankDrive(Deadzone(leftSpeed, 0.02), Deadzone(rightSpeed, 0.02));
+    m_drive.TankDrive(leftSpeed, rightSpeed);
 }
 
 double DriveBase::Deadzone(double val, double dzone) {
