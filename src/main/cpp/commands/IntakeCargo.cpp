@@ -29,20 +29,17 @@ IntakeCargo::IntakeCargo(Intake* m_intake, Tunnel* m_tunnel)
 // Called just before this Command runs the first time
 void IntakeCargo::Initialize() {
     m_intake->Run();
+    m_intake->MoveWristDown();
     if (m_tunnel->HasCargo()) {
-        frc::SmartDashboard::PutBoolean("Subsystems/Tunnel/Running", true);
         m_tunnel->RunHalfSpeed();
     }
 }
 
 // Called repeatedly when this Command is scheduled to run
 void IntakeCargo::Execute() {
-    frc::SmartDashboard::PutBoolean("Subsystems/Intake/Running", true);
     if (m_tunnel->HasCargo()) {
-        frc::SmartDashboard::PutBoolean("Subsystems/Tunnel/Running", true);
         m_tunnel->RunHalfSpeed();
     } else {
-        frc::SmartDashboard::PutBoolean("Subsystems/Tunnel/Running", false);
         m_tunnel->Stop();
     }
 }
@@ -54,10 +51,9 @@ bool IntakeCargo::IsFinished() {
 
 // Called once after isFinished returns true
 void IntakeCargo::End(bool interrupted) {
-    frc::SmartDashboard::PutBoolean("Subsystems/Intake/Running", false);
-    frc::SmartDashboard::PutBoolean("Subsystems/Tunnel/Running", false);
     m_intake->Stop();
     m_tunnel->Stop();
+    m_intake->MoveWristUp();
 }
 
 bool IntakeCargo::RunsWhenDisabled() const {

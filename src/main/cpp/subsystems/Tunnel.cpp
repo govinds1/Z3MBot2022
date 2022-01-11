@@ -25,14 +25,17 @@ void Tunnel::SimulationPeriodic() {
 }
 
 void Tunnel::Run() {
+    frc::SmartDashboard::PutBoolean("Subsystems/Tunnel/Running", true);
     m_motor.Set(kTunnelSpeed);
 }
 
 void Tunnel::RunHalfSpeed() {
+    frc::SmartDashboard::PutBoolean("Subsystems/Tunnel/Running", true);
     m_motor.Set(kTunnelSpeed*0.5);
 }
 
 void Tunnel::Stop() {
+    frc::SmartDashboard::PutBoolean("Subsystems/Tunnel/Running", false);
     m_motor.Set(0.0);
 }
 
