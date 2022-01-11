@@ -23,10 +23,13 @@ namespace DIOPorts{
 namespace ControllerConstants {
     constexpr int kXboxControllerPort = 0;
     constexpr int kIntakeButton = (int)frc::XboxController::Button::kA;
+    constexpr int kTunnelButton = (int)frc::XboxController::Button::kX;
     constexpr int kShootButton = (int)frc::XboxController::Button::kB;
+
+    // Climb1 is the telescope with the hook
     constexpr int kClimb1UpButton = (int)frc::XboxController::Button::kLeftBumper;
     constexpr int kClimb1DownButton = (int)frc::XboxController::Button::kRightBumper;
+    // Climb2 is the winch - TRIGGERS NOT SET UP
     constexpr int kClimb2UpButton = 2;
     constexpr int kClimb2DownButton = 3;
-    constexpr int kTunnelButton = (int)frc::XboxController::Button::kX;
 }
