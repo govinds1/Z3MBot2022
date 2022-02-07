@@ -25,6 +25,7 @@ namespace ControllerConstants {
     constexpr int kIntakeButton = (int)frc::XboxController::Button::kA;
     constexpr int kTunnelButton = (int)frc::XboxController::Button::kX;
     constexpr int kShootButton = (int)frc::XboxController::Button::kB;
+    // TODO: Add buttons for moving wrist up and down
 
     // Climb1 is the telescope with the hook
     constexpr int kClimb1UpButton = (int)frc::XboxController::Button::kLeftBumper;
