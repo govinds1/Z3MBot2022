@@ -76,7 +76,7 @@ double Auton::GetTime() {
 void Auton::GoToNextState() {
     stateStartTime = 0.0;
     currentState++;
-    turnSpeed = 0.8;
+    turnSpeed = 0.6;
     driveSpeed = 0.8;
 }
 
@@ -110,8 +110,7 @@ bool Auton::TurnAngle(double deg) {
     } else if (currentTurnTime >= totalTurnTime*0.9) {
         turnSpeed = deg < 0 ? -0.2 : 0.2;
     } else {
-        turnSpeed = deg < 0 ? -0.3 : 0.3;
-        turnSpeed = turnSpeed*(totalTurnTime/currentTurnTime);
+        turnSpeed = deg < 0 ? -0.6 : 0.6;
     }
     return false;
 }
@@ -128,8 +127,7 @@ bool Auton::DriveDistance(double dist) {
     } else if (currentDriveTime >= totalDriveTime*0.9) {
         driveSpeed = dist < 0 ? -0.3 : 0.3;
     } else {
-        driveSpeed = dist < 0 ? -0.3 : 0.3;
-        driveSpeed = driveSpeed*(totalDriveTime/currentDriveTime);
+        driveSpeed = dist < 0 ? -0.8 : 0.8;
     }
     return false;
 }
