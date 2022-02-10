@@ -77,7 +77,7 @@ void RobotContainer::ConfigureButtonBindings() {
     //frc2::Trigger m_climb2UpButton(
     //frc2::Trigger m_climb2DownButton(
 
-    m_intakeButton.WhenHeld(IntakeCargo( IntakeCargo::MotorsToRun::Roller, &m_intake, &m_tunnel), true);
+    m_intakeButton.WhenHeld(IntakeCargo( &m_intake, &m_tunnel), true);
     //m_intakeButton.WhenHeld(IntakeCargo( IntakeCargo::MotorsToRun::Wrist, &m_intake, &m_tunnel), true);
     m_shootButton.WhenHeld(Shoot( &m_shooter , &m_tunnel), true);
     m_tunnelButton.WhenHeld(RunTunnel(true, &m_tunnel), true);

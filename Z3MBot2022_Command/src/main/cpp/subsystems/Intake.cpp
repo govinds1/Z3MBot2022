@@ -59,7 +59,10 @@ void Intake::Stop() {
 }
 
 void Intake::MoveWristDown() {
-    // add check for limit switch
+    if (lowerLimitSwitch.Get()) {
+        StopWrist();
+        return;
+    }
 
     frc::SmartDashboard::PutString("Subsystems/Intake/Wrist/MovingState", "Lowering");
     m_wrist.Set(kWristSpeed);
@@ -67,6 +70,10 @@ void Intake::MoveWristDown() {
 
 void Intake::MoveWristUp() {
     // TODO: check for limit switch
+    if (upperLimitSwitch.Get()) {
+        StopWrist();
+        return;
+    }
 
     frc::SmartDashboard::PutString("Subsystems/Intake/Wrist/MovingState", "Raising");
     m_wrist.Set(-kWristSpeed);

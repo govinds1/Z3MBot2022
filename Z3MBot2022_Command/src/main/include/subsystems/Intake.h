@@ -34,8 +34,8 @@ private:
     ctre::phoenix::motorcontrol::can::WPI_VictorSPX m_wrist{CANMotorIDs::kIntakeWristMotorPort};
 
 // Limit Switches here
-    //frc::DigitalInput upperLimitSwitch{DIOPorts::kIntakeUpperLimitSwitch};
-    //frc::DigitalInput lowerLimitSwitch {DIOPorts::kIntakeLowerLimitSwitch};
+    frc::DigitalInput upperLimitSwitch{DIOPorts::kIntakeUpperLimitSwitch};
+    frc::DigitalInput lowerLimitSwitch {DIOPorts::kIntakeLowerLimitSwitch};
 
 // Wrist Encoder
     // TODO: define wrist encoder

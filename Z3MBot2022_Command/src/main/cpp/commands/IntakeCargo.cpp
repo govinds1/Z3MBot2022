@@ -14,8 +14,8 @@
 
 #include "commands/IntakeCargo.h"
 
-IntakeCargo::IntakeCargo(MotorsToRun toRun, Intake* m_intake, Tunnel* m_tunnel)
-:m_toRun(toRun), m_intake(m_intake), m_tunnel(m_tunnel){
+IntakeCargo::IntakeCargo(Intake* m_intake, Tunnel* m_tunnel)
+:m_intake(m_intake), m_tunnel(m_tunnel){
 
     // Use AddRequirements() here to declare subsystem dependencies
     // eg. AddRequirements(m_Subsystem);
@@ -28,14 +28,7 @@ IntakeCargo::IntakeCargo(MotorsToRun toRun, Intake* m_intake, Tunnel* m_tunnel)
 
 // Called just before this Command runs the first time
 void IntakeCargo::Initialize() {
-    if (m_toRun == MotorsToRun::Wrist) {
-        m_intake->MoveWristDown();
-    } else if (m_toRun == MotorsToRun::Roller) {
-        m_intake->Run();
-    } else {
-        m_intake->Run();
-        m_intake->MoveWristDown();
-    }
+    m_intake->Run();
     if (m_tunnel->HasCargo()) {
         m_tunnel->RunHalfSpeed();
     }
