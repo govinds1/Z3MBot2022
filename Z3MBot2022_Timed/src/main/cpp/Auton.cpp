@@ -111,6 +111,9 @@ bool Auton::TurnAngle(double deg) {
         turnSpeed = deg < 0 ? -0.2 : 0.2;
     } else {
         turnSpeed = deg < 0 ? -0.6 : 0.6;
+
+        // slow down on a sqrt curve over time, test with different root curves
+        turnSpeed = turnSpeed*std::sqrt(((totalTurnTime-currentTurnTime)/totalTurnTime));
     }
     return false;
 }
@@ -128,6 +131,9 @@ bool Auton::DriveDistance(double dist) {
         driveSpeed = dist < 0 ? -0.3 : 0.3;
     } else {
         driveSpeed = dist < 0 ? -0.8 : 0.8;
+
+        // slow down on a sqrt curve over time, test with different root curves
+        driveSpeed = driveSpeed*std::sqrt(((totalDriveTime-currentDriveTime)/totalDriveTime));
     }
     return false;
 }
