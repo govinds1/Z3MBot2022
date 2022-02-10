@@ -1,6 +1,7 @@
 #pragma once
 
 #include <rev/CANSparkMax.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 #include "Constants.h"
 
 class Shooter {

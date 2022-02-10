@@ -2,6 +2,7 @@
 
 #include <rev/CANSparkMax.h>
 #include <ctre/Phoenix.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 #include "Constants.h"
 
 class Climber {

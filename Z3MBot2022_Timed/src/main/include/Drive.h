@@ -2,6 +2,7 @@
 
 #include <ctre/Phoenix.h>
 #include <frc/drive/DifferentialDrive.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 #include "Constants.h"
 
 class Drive {

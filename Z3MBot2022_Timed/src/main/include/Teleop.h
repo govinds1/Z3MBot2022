@@ -1,11 +1,12 @@
 #pragma once
 
+#include <frc/XboxController.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 #include "Drive.h"
 #include "Shooter.h"
 #include "Intake.h"
 #include "Tunnel.h"
 #include "Climber.h"
-#include <frc/XboxController.h>
 #include "Constants.h"
 
 class Teleop {

@@ -7,13 +7,14 @@
 #include <string>
 
 #include <frc/TimedRobot.h>
-#include <frc/smartdashboard/SendableChooser.h>
+#include <frc/smartdashboard/SmartDashboard.h>
 #include "Shooter.h"
 #include "Climber.h"
 #include "Intake.h"
 #include "Tunnel.h"
 #include "Drive.h"
 #include "Teleop.h"
+#include "Auton.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -29,14 +30,11 @@ class Robot : public frc::TimedRobot {
   void TestPeriodic() override;
 
  private:
-  frc::SendableChooser<std::string> m_chooser;
-  const std::string kAutoNameDefault = "Default";
-  const std::string kAutoNameCustom = "My Auto";
-  std::string m_autoSelected;
   Drive* m_drive;
   Shooter* m_shooter;
   Intake* m_intake;
   Tunnel* m_tunnel;
   Climber* m_climber;
   Teleop* m_teleop;
+  Auton* m_auton;
 };
