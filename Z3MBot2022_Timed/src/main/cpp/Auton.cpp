@@ -107,7 +107,7 @@ bool Auton::TurnAngle(double deg) {
     if (currentTurnTime >= totalTurnTime) {
         turnSpeed = 0.0;
         return true;
-    } else if (currentTurnTime >= totalTurnTime*0.95) {
+    } else if (currentTurnTime >= totalTurnTime*0.9) {
         turnSpeed = deg < 0 ? -0.2 : 0.2;
     } else {
         turnSpeed = deg < 0 ? -0.3 : 0.3;
@@ -125,10 +125,11 @@ bool Auton::DriveDistance(double dist) {
     if (currentDriveTime >= totalDriveTime) {
         driveSpeed = 0.0;
         return true;
-    } else if (currentDriveTime >= totalDriveTime*0.95) {
+    } else if (currentDriveTime >= totalDriveTime*0.9) {
         driveSpeed = dist < 0 ? -0.3 : 0.3;
-    } else if (currentDriveTime >= totalDriveTime*0.75) {
-        driveSpeed = dist < 0 ? -0.6 : 0.6;
+    } else {
+        driveSpeed = dist < 0 ? -0.3 : 0.3;
+        driveSpeed = driveSpeed*(totalDriveTime/currentDriveTime);
     }
     return false;
 }
