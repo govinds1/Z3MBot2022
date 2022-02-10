@@ -85,9 +85,10 @@ void Auton::Idle_Auton() {
 }
 
 void Auton::Taxi_Auton() {
+    // FACE FIELD/CARGO FOR TELEOP STARTING
     switch(currentState) {
-        case 0: // Drive backwards
-            m_drive->ArcadeDrive(-0.5, 0);
+        case 0: // Drive forwards
+            m_drive->ArcadeDrive(0.5, 0);
             StopSubsystems(false, true, true, true, true);
             if (GetTime() - stateStartTime >= 5.0) {
                 GoToNextState();
@@ -103,6 +104,7 @@ void Auton::Taxi_Auton() {
 }
 
 void Auton::ShootAndTaxi_Auton() {
+    // START FACING SHOOTER TOWARDS HUB
     switch(currentState) {
         case 0: // Drive backwards and run shooter
             m_shooter->Run();
@@ -130,24 +132,34 @@ void Auton::ShootAndTaxi_Auton() {
 }
 
 void Auton::ShootTwo_Auton() {
+    // START FACING THE CARGO YOU WANT TO PICK UP
     switch(currentState) {
-        case 0: // Drive backwards and run shooter
-            m_shooter->Run();
-            m_drive->ArcadeDrive(-0.5, 0);
-            StopSubsystems(false, false, true, true, true);
+        case 0: // Drive forward and run intake
+            m_intake->MoveWristDown();
+            m_intake->RunRoller();
+            m_drive->ArcadeDrive(0.5, 0);
+            StopSubsystems(false, true, false, false, true);
             if (GetTime() - stateStartTime >= 3) {
                 GoToNextState();
             }
             break;
-        case 1: // Run tunnel and shooter
+        case 1: // Turn around, ramp up shooter and pull up wrist
+            m_drive->ArcadeDrive(0, 0.6);
             m_shooter->Run();
-            m_tunnel->Run();
-            StopSubsystems(true, false, true, true, false);
-            if (GetTime() - stateStartTime >= 5.0) {
+            m_intake->MoveWristUp();
+            StopSubsystems(false, false, true, false, true);
+            if (GetTime() - stateStartTime >= 2) {
                 GoToNextState();
             }
             break;
-        case 2: // turn around?
+        case 2: // Run tunnel, intake, and shooter and shoot both balls
+            m_shooter->Run();
+            m_intake->RunRoller();
+            m_tunnel->Run();
+            StopSubsystems(true, false, false, true, false);
+            if (GetTime() - stateStartTime >= 5.0) {
+                GoToNextState();
+            }
             break;
         case 3: // Stop all motors
             StopSubsystems(true, true, true, true, true);
