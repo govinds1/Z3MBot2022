@@ -3,6 +3,8 @@
 Intake::Intake() {
     m_intake = new WPI_VictorSPX(CANMotorIDs::kIntakeRollerID);
     m_wrist = new WPI_VictorSPX(CANMotorIDs::kIntakeWristID);
+    m_intake->SetInverted(true);
+    m_wrist->SetInverted(false);
     frc::SmartDashboard::PutString("Subsystems/Intake/State", "Idle");
     frc::SmartDashboard::PutString("Subsystems/Wrist/State", "Idle");
 }

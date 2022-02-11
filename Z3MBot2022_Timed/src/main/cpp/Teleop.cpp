@@ -41,9 +41,9 @@ void Teleop::Periodic() {
 
     // Wrist
     if (m_controller2->GetRawButton(N64::kRightBumperButton)) {
-        m_intake->MoveWristDown();
-    } else if (m_controller2->GetRawButton(N64::kLeftBumperButton)) {
         m_intake->MoveWristUp();
+    } else if (m_controller2->GetRawButton(N64::kLeftBumperButton)) {
+        m_intake->MoveWristDown();
     } else {
         m_intake->StopWrist();
     }

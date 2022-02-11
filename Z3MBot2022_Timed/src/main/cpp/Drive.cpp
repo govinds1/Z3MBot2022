@@ -9,7 +9,7 @@ Drive::Drive() {
     m_backLeft->Follow(*m_frontLeft);
     m_backRight->Follow(*m_frontRight);
 
-    m_frontLeft->SetInverted(false);
+    m_frontLeft->SetInverted(true);
     m_backLeft->SetInverted(false);
     m_frontRight->SetInverted(false);
     m_backRight->SetInverted(false);
@@ -22,7 +22,7 @@ void Drive::Init() {
 }
 
 void Drive::Periodic() {
-    
+
 }
 
 void Drive::TankDrive(double left, double right) {
