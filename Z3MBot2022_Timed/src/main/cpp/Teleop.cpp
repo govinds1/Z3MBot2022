@@ -33,32 +33,34 @@ void Teleop::Periodic() {
     }
 
     // Intake
-    if (m_controller2->GetRawButton(N64::kAButton)) {
-        m_intake->RunRoller();
-    } else {
-        m_intake->StopRoller();
-    }
+    // if (m_controller2->GetRawButton(N64::kAButton)) {
+    //     m_intake->RunRoller();
+    // } else {
+    //     m_intake->StopRoller();
+    // }
 
     // Wrist
-    if (m_controller2->GetRawButton(N64::kRightBumperButton)) {
-        m_intake->MoveWristUp();
-    } else if (m_controller2->GetRawButton(N64::kLeftBumperButton)) {
-        m_intake->MoveWristDown();
-    } else {
-        m_intake->StopWrist();
-    }
+    // if (m_controller2->GetRawButton(N64::kRightBumperButton)) {
+    //     m_intake->MoveWristUp();
+    // } else if (m_controller2->GetRawButton(N64::kLeftBumperButton)) {
+    //     m_intake->MoveWristDown();
+    // } else {
+    //     m_intake->StopWrist();
+    // }
 
     // Tunnel
-    if (m_controller2->GetRawButton(N64::kZButton)) {
+    if (m_controller2->GetRawButton(N64::kRightBumperButton)) {
         m_tunnel->Run();
+    } else if (m_controller2->GetRawButton(N64::kLeftBumperButton)){
+        m_tunnel->RunBackwards();
     } else {
         m_tunnel->Stop();
     }
 
     // Climber Telescope
-    if (m_controller1->GetRawAxis(N64::kCYAxis) >= 0.05) {
+    if (m_controller1->GetRawAxis(N64::kCYAxis) <= -0.05) {
         m_climber->RaiseTelescope();
-    } else if (m_controller1->GetRawAxis(N64::kCYAxis) <= -0.05) {
+    } else if (m_controller1->GetRawAxis(N64::kCYAxis) >= 0.05) {
         m_climber->LowerTelescope();
     } else {
         m_climber->StopTelescope();

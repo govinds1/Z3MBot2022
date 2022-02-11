@@ -74,7 +74,7 @@ double Auton::GetTime() {
 }
 
 void Auton::GoToNextState() {
-    stateStartTime = 0.0;
+    stateStartTime = GetTime();
     currentState++;
     turnSpeed = 0.6;
     driveSpeed = 0.8;
@@ -168,7 +168,7 @@ void Auton::ShootAndTaxi_Auton() {
             m_shooter->Run();
             m_drive->ArcadeDrive(-driveSpeed, 0);
             StopSubsystems(false, false, true, true, true);
-            if (GetTime() - stateStartTime >= 3) {
+            if (GetTime() - stateStartTime >= 5.0) {
                 GoToNextState();
             }
             break;
@@ -176,7 +176,7 @@ void Auton::ShootAndTaxi_Auton() {
             m_shooter->Run();
             m_tunnel->Run();
             StopSubsystems(true, false, true, true, false);
-            if (GetTime() - stateStartTime >= 5.0) {
+            if (GetTime() - stateStartTime >= 2.0) {
                 GoToNextState();
             }
             break;

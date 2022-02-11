@@ -14,8 +14,13 @@ void Tunnel::Periodic() {
 }
 
 void Tunnel::Run() {
-    frc::SmartDashboard::PutString("Subsystems/Tunnel/State", "Running");
+    frc::SmartDashboard::PutString("Subsystems/Tunnel/State", "Running Forward");
     m_tunnel->Set(MotorSpeeds::kTunnelSpeed);
+}
+
+void Tunnel::RunBackwards() {
+    frc::SmartDashboard::PutString("Subsystems/Tunnel/State", "Running Forward");
+    m_tunnel->Set(-MotorSpeeds::kTunnelSpeed);
 }
 
 void Tunnel::Stop() {

@@ -3,6 +3,8 @@
 Climber::Climber() {
     m_winch = new WPI_VictorSPX(CANMotorIDs::kWinchID);
     m_telescope = new rev::CANSparkMax(CANMotorIDs::kTelescopeID, rev::CANSparkMaxLowLevel::MotorType::kBrushed);
+    m_winch->SetInverted(false);
+    m_telescope->SetInverted(true);
     frc::SmartDashboard::PutString("Subsystems/Telescope/State", "Idle");
     frc::SmartDashboard::PutString("Subsystems/Winch/State", "Idle");
 }
@@ -24,7 +26,7 @@ void Climber::RaiseTelescope() {
 
 void Climber::LowerTelescope() {
     frc::SmartDashboard::PutString("Subsystems/Telescope/State", "Lowering");
-    m_telescope->Set(-MotorSpeeds::kTelescopeSpeed);
+    m_telescope->Set(-MotorSpeeds::kTelescopeSpeed * 0.5);
 }
 
 void Climber::StopTelescope() {
