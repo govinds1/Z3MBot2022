@@ -29,3 +29,18 @@ namespace DIOPorts{
     constexpr int kIntakeUpperLimitSwitch = 0;
     constexpr int kIntakeLowerLimitSwitch = 1;
 }
+
+namespace N64 {
+    constexpr int kBButton = 3;
+    constexpr int kAButton = 2;
+    constexpr int kStartButton = 10;
+    constexpr int kStickYAxis = 1;
+    constexpr int kStickXAxis = 0;
+    constexpr int kLeftBumperButton = 5;
+    constexpr int kRightBumperButton = 6;
+    constexpr int kZButton = 7;
+    
+    // C Buttons are treated like Trigger Axes!!
+    constexpr int kCXAxis = 2;
+    constexpr int kCYAxis = 3;
+}

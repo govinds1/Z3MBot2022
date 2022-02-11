@@ -1,6 +1,7 @@
 #pragma once
 
 #include <frc/XboxController.h>
+#include <frc/Joystick.h>
 #include <frc/smartdashboard/SmartDashboard.h>
 #include "Drive.h"
 #include "Shooter.h"
@@ -15,8 +16,8 @@ class Teleop {
     Intake* m_intake;
     Tunnel* m_tunnel;
     Climber* m_climber;
-    frc::XboxController* m_controller1;
-    frc::XboxController* m_controller2;
+    frc::Joystick* m_controller1;
+    frc::Joystick* m_controller2;
 
     public:
     Teleop(Drive* drive, Shooter* shooter, Intake* intake, Tunnel* tunnel, Climber* climber);
