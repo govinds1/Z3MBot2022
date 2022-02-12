@@ -109,11 +109,13 @@ bool Auton::TurnAngle(double deg) {
         return true;
     } else if (currentTurnTime >= totalTurnTime*0.9) {
         turnSpeed = deg < 0 ? -0.2 : 0.2;
-    } else {
+    } else if (currentTurnTime >= totalTurnTime*0.3) {
         turnSpeed = deg < 0 ? -0.6 : 0.6;
 
         // slow down on a sqrt curve over time, test with different root curves
-        turnSpeed = turnSpeed*std::sqrt(((totalTurnTime-currentTurnTime)/totalTurnTime));
+        turnSpeed = turnSpeed*std::sqrt(std::sqrt(((totalTurnTime-currentTurnTime)/totalTurnTime)));
+    } else {
+        turnSpeed = deg < 0 ? -0.6 : 0.6;
     }
     return false;
 }
