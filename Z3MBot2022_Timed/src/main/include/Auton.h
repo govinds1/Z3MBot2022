@@ -48,6 +48,6 @@ class Auton {
     const std::vector<std::string> kAutoNames{"Idle", "Taxi", "Shoot And Taxi", "Shoot Two", "Test Distance", "Test Angle"};
 
     // CHANGE THESE WITH TESTING
-    const double kTimeToRotateHalf = 2.0;
-    const double kTimeToDrive1Foot = 2.0;
+    const double kTimeToRotateHalf = 0.5;
+    const double kTimeToDrive1Foot = 0.5;
 };

@@ -2,6 +2,7 @@
 
 Tunnel::Tunnel() {
     m_tunnel = new WPI_VictorSPX(CANMotorIDs::kCargoTunnelID);
+    m_tunnel->SetInverted(true);
     frc::SmartDashboard::PutString("Subsystems/Tunnel/State", "Idle");
 }
 

@@ -122,18 +122,18 @@ bool Auton::TurnAngle(double deg) {
 // Set turnSpeed depending on time since state start
 // If dist < 0, drivespeed will be set to negative
 bool Auton::DriveDistance(double dist) {
-    double totalDriveTime = dist*kTimeToDrive1Foot;
+    double totalDriveTime = std::abs(dist*kTimeToDrive1Foot);
     double currentDriveTime = GetTime() - stateStartTime;
     if (currentDriveTime >= totalDriveTime) {
         driveSpeed = 0.0;
         return true;
     } else if (currentDriveTime >= totalDriveTime*0.9) {
-        driveSpeed = dist < 0 ? -0.3 : 0.3;
+        driveSpeed = dist < 0 ? -0.5 : 0.5;
     } else {
         driveSpeed = dist < 0 ? -0.8 : 0.8;
 
         // slow down on a sqrt curve over time, test with different root curves
-        driveSpeed = driveSpeed*std::sqrt(((totalDriveTime-currentDriveTime)/totalDriveTime));
+        driveSpeed = driveSpeed*std::sqrt(std::sqrt(((totalDriveTime-currentDriveTime)/totalDriveTime)));
     }
     return false;
 }
@@ -148,7 +148,10 @@ void Auton::Taxi_Auton() {
         case 0: // Drive forwards
             m_drive->ArcadeDrive(driveSpeed, 0);
             StopSubsystems(false, true, true, true, true);
-            if (GetTime() - stateStartTime >= 5.0) {
+            // if (GetTime() - stateStartTime >= 5.0) {
+            //     GoToNextState();
+            // }
+            if (DriveDistance(-5.0)) {
                 GoToNextState();
             }
             break;
@@ -168,7 +171,10 @@ void Auton::ShootAndTaxi_Auton() {
             m_shooter->Run();
             m_drive->ArcadeDrive(-driveSpeed, 0);
             StopSubsystems(false, false, true, true, true);
-            if (GetTime() - stateStartTime >= 5.0) {
+            // if (GetTime() - stateStartTime >= 3.0) {
+            //     GoToNextState();
+            // }
+            if (DriveDistance(-5.0)) {
                 GoToNextState();
             }
             break;
@@ -176,7 +182,7 @@ void Auton::ShootAndTaxi_Auton() {
             m_shooter->Run();
             m_tunnel->Run();
             StopSubsystems(true, false, true, true, false);
-            if (GetTime() - stateStartTime >= 2.0) {
+            if (GetTime() - stateStartTime >= 3.0) {
                 GoToNextState();
             }
             break;

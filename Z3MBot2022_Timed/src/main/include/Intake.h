@@ -5,8 +5,8 @@
 #include "Constants.h"
 
 class Intake {
-    WPI_VictorSPX* m_wrist;
-    WPI_VictorSPX* m_intake;
+    //WPI_VictorSPX* m_wrist;
+    //WPI_VictorSPX* m_intake;
 
     // define limit switches
 
